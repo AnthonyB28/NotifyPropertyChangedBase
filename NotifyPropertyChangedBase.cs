@@ -21,6 +21,11 @@
         /// <param name="propertyName">Optional parameter to specify the name of the property.</param>
         protected void SetProperty<T>(ref T property, T newValue, [CallerMemberName] String propertyName = "")
         {
+			if(property == null && newValue == null)
+			{
+				return;
+			}
+			
             bool propertyChanged = false;
             if (property == null && newValue != null)
             {
